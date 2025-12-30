@@ -1,0 +1,61 @@
+<script setup>
+import { ref, onMounted, inject,onUnmounted} from "vue";
+let chartInstance = null;
+const allData = ref(null);
+const seller_ref = ref(null);//seller_ref得根据图表明进行修改
+const titleFontSize = ref(0)
+const $http = inject("$http");
+const $echarts = inject("$echarts");
+const initChart = () => {
+  //seller_ref得根据图表明进行修改
+  chartInstance = $echarts.init(seller_ref.value,'chalk');
+  const initOption = {}
+  chartInstance.setOption(initOption)
+  screenAdapter()
+}
+
+const getData = async () => {
+  try {
+    const response = await $http.get("seller.json");
+    allData.value = response;
+    console.log("获取到的数据:", allData.value);
+    updateChart()
+  } catch (error) {
+    console.log("获取数据失败:", error);
+  }
+};
+
+const updateChart = () => {
+  const dataOption = {}
+  chartInstance.setOption(dataOption)
+};
+
+
+const screenAdapter = () => {
+  titleFontSize.value = seller_ref.value.offsetWidth / 100*3.6 //seller_ref得根据图表明进行修改
+  const adapterOption = {}
+  chartInstance.setOption(adapterOption)
+  chartInstance.resize()
+}
+
+
+
+onMounted(() => {
+  initChart();
+  getData();
+  window.addEventListener('resize',screenAdapter)
+})
+onUnmounted(() =>{
+
+})
+</script>
+
+<template>
+  <div class="com-container">
+    //seller_ref得根据图表明进行修改
+    <div class="com-chart" ref="seller_ref"></div>
+  </div>
+</template>
+
+<style scoped>
+</style>

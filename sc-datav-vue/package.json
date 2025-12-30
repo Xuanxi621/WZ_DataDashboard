@@ -1,0 +1,35 @@
+{
+  "name": "sc-datav-vue",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+  },
+  "dependencies": {
+    "autofit.js": "^3.2.8",
+    "d3-geo": "^3.1.1",
+    "echarts": "^6.0.0",
+    "gsap": "^3.13.0",
+    "keli-heatmap.js": "^2.0.18",
+    "three": "^0.181.2",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@types/d3-geo": "^3.1.0",
+    "@types/node": "^24.6.0",
+    "@types/three": "^0.181.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/eslint-config-typescript": "^14.1.3",
+    "@vue/tsconfig": "^0.7.0",
+    "eslint": "^9.36.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "typescript": "~5.9.3",
+    "vite": "^6.0.5",
+    "vue-tsc": "^2.1.34"
+  }
+}
+

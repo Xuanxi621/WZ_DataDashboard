@@ -1,0 +1,234 @@
+	html,
+	body,
+	#app {
+	    width: 100%;
+	    height: 100%;
+	    padding: 0;
+	    margin: 0;
+	    overflow: hidden;
+	    background: linear-gradient(135deg, 
+	        #e8f4f8 0%, 
+	        #d0e8f0 20%,
+	        #b8dcf0 40%,
+	        #a0d0e8 60%,
+	        #c8e4f0 80%,
+	        #e0f0f8 100%);
+	    background-size: 400% 400%;
+	    animation: gradientShift 15s ease infinite;
+	}
+	
+	/* 淡科技蓝背景 */
+	body::before {
+	    content: '';
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    background: 
+	        radial-gradient(circle at 10% 20%, rgba(114, 204, 255, 0.15) 0%, transparent 50%),
+	        radial-gradient(circle at 90% 80%, rgba(100, 180, 255, 0.15) 0%, transparent 50%),
+	        radial-gradient(circle at 50% 50%, rgba(135, 206, 250, 0.12) 0%, transparent 60%),
+	        radial-gradient(circle at 30% 70%, rgba(173, 216, 230, 0.1) 0%, transparent 50%),
+	        radial-gradient(circle at 70% 30%, rgba(176, 224, 230, 0.1) 0%, transparent 50%),
+	        linear-gradient(135deg, 
+	            rgba(232, 244, 248, 0.9) 0%, 
+	            rgba(208, 232, 240, 0.85) 25%,
+	            rgba(184, 220, 240, 0.9) 50%,
+	            rgba(160, 208, 232, 0.85) 75%,
+	            rgba(200, 228, 240, 0.9) 100%);
+	    background-size: 200% 200%;
+	    z-index: -2;
+	    animation: backgroundShift 20s ease-in-out infinite;
+	}
+	
+	@keyframes gradientShift {
+	    0% {
+	        background-position: 0% 50%;
+	    }
+	    50% {
+	        background-position: 100% 50%;
+	    }
+	    100% {
+	        background-position: 0% 50%;
+	    }
+	}
+	
+	@keyframes colorPulse {
+	    0%, 100% {
+	        filter: hue-rotate(0deg) brightness(1);
+	    }
+	    50% {
+	        filter: hue-rotate(20deg) brightness(1.1);
+	    }
+	}
+	
+	/* 淡科技蓝网格线效果 */
+	body::after {
+	    content: '';
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    background-image: 
+	        linear-gradient(rgba(114, 204, 255, 0.12) 1px, transparent 1px),
+	        linear-gradient(90deg, rgba(114, 204, 255, 0.12) 1px, transparent 1px),
+	        linear-gradient(rgba(100, 180, 255, 0.08) 1px, transparent 1px),
+	        linear-gradient(90deg, rgba(100, 180, 255, 0.08) 1px, transparent 1px);
+	    background-size: 50px 50px, 50px 50px, 100px 100px, 100px 100px;
+	    z-index: -1;
+	    animation: gridMove 20s linear infinite;
+	    opacity: 0.5;
+	}
+	
+	@keyframes backgroundShift {
+	    0%, 100% {
+	        background-position: 0% 0%;
+	    }
+	    50% {
+	        background-position: 100% 100%;
+	    }
+	}
+	
+	@keyframes gridMove {
+	    0% {
+	        transform: translate(0, 0);
+	    }
+	    100% {
+	        transform: translate(50px, 50px);
+	    }
+	}
+
+	.com-page {
+	    width: 100%;
+	    height: 100%;
+	    overflow: hidden;
+	}
+
+	.com-container {
+	    width: 100%;
+	    height: 100%;
+	    overflow: hidden;
+	    position: relative;
+	    background: linear-gradient(135deg, 
+	        rgba(232, 244, 248, 0.95) 0%, 
+	        rgba(208, 232, 240, 0.9) 30%,
+	        rgba(184, 220, 240, 0.95) 60%,
+	        rgba(200, 228, 240, 0.9) 100%);
+	    border: 1px solid rgba(114, 204, 255, 0.5);
+	    border-radius: 16px;
+	    transform-style: preserve-3d;
+	    perspective: 1000px;
+	    transition: all 0.3s ease;
+	    box-shadow: 
+	        /* 外阴影 - 3D深度 */
+	        0 20px 60px rgba(65, 105, 225, 0.25),
+	        0 10px 30px rgba(114, 204, 255, 0.35),
+	        0 5px 15px rgba(100, 180, 255, 0.3),
+	        /* 内阴影 - 凹陷效果 */
+	        inset 0 2px 10px rgba(255, 255, 255, 0.6),
+	        inset 0 -2px 10px rgba(114, 204, 255, 0.2),
+	        /* 顶部高光 */
+	        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+	        /* 底部阴影 */
+	        inset 0 -1px 0 rgba(100, 180, 255, 0.25),
+	        /* 左侧高光 */
+	        inset 1px 0 0 rgba(255, 255, 255, 0.7),
+	        /* 右侧阴影 */
+	        inset -1px 0 0 rgba(100, 180, 255, 0.2),
+	        /* 外发光 */
+	        0 0 80px rgba(114, 204, 255, 0.25),
+	        0 0 120px rgba(100, 180, 255, 0.2);
+	    backdrop-filter: blur(10px);
+	}
+	
+	.com-container::before {
+	    content: '';
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    background: 
+	        radial-gradient(circle at top left, rgba(114, 204, 255, 0.2) 0%, transparent 50%),
+	        radial-gradient(circle at bottom right, rgba(100, 180, 255, 0.2) 0%, transparent 50%),
+	        linear-gradient(135deg, 
+	            rgba(255, 255, 255, 0.3) 0%, 
+	            transparent 30%,
+	            transparent 70%,
+	            rgba(114, 204, 255, 0.1) 100%);
+	    border-radius: 16px;
+	    pointer-events: none;
+	    z-index: 0;
+	}
+	
+	.com-container::after {
+	    content: '';
+	    position: absolute;
+	    top: -2px;
+	    left: -2px;
+	    right: -2px;
+	    bottom: -2px;
+	    background: linear-gradient(135deg, 
+	        rgba(114, 204, 255, 0.5) 0%, 
+	        rgba(100, 180, 255, 0.5) 25%,
+	        rgba(135, 206, 250, 0.5) 50%,
+	        rgba(173, 216, 230, 0.5) 75%,
+	        rgba(114, 204, 255, 0.5) 100%);
+	    border-radius: 18px;
+	    z-index: -1;
+	    filter: blur(8px);
+	    opacity: 0.5;
+	    animation: borderGlow3D 3s ease-in-out infinite;
+	}
+	
+	@keyframes borderGlow3D {
+	    0%, 100% {
+	        opacity: 0.4;
+	        transform: scale(1);
+	    }
+	    50% {
+	        opacity: 0.8;
+	        transform: scale(1.02);
+	    }
+	}
+	
+	/* 3D悬浮效果 */
+	.com-container:hover {
+	    transform: translateY(-5px) rotateX(2deg) rotateY(-1deg);
+	    box-shadow: 
+	        0 30px 80px rgba(65, 105, 225, 0.3),
+	        0 15px 40px rgba(114, 204, 255, 0.4),
+	        0 8px 20px rgba(100, 180, 255, 0.35),
+	        inset 0 2px 10px rgba(255, 255, 255, 0.7),
+	        inset 0 -2px 10px rgba(114, 204, 255, 0.25),
+	        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+	        inset 0 -1px 0 rgba(100, 180, 255, 0.3),
+	        inset 1px 0 0 rgba(255, 255, 255, 0.8),
+	        inset -1px 0 0 rgba(100, 180, 255, 0.25),
+	        0 0 100px rgba(114, 204, 255, 0.35),
+	        0 0 150px rgba(100, 180, 255, 0.25);
+	}
+
+	.com-chart {
+	    width: 100%;
+	    height: 100%;
+	    overflow: hidden;
+	}
+
+	canvas {
+	    border-radius: 8px;
+	}
+
+		.fullscreen {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 9999 !important;
+  border-radius: 0 !important;
+}
